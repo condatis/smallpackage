@@ -1,0 +1,57 @@
+---
+title: "Package_making"
+author: "Jenny"
+date: "16/04/2021"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Basics for starting a package
+
+Called my package smallpackage in RStudio.
+File > New Project… > New Directory > R package  
+
+```{r first.install}
+library(devtools)
+install(".")
+library("smallpackage")
+
+#use the inbuilt function!
+
+hello()
+```
+
+## Add new functions and documentation
+
+You can insert a Roxygen skeleton by placing the cursor with a function and clicking:
+
+    Code > Insert Roxygen Skeleton
+
+Delete the original NAMESPACE and help files that came with the template.
+
+After you have one or more functions with skeletons,use function devtools::document() to create documentation. This re-creates a hello.Rd helpfile in the man/ folder and populates the NAMESPACE with our functions
+
+```{r package, eval=FALSE}
+devtools::document()
+#Add cowsay as a dependency.
+usethis::use_package("cowsay")
+library(usethis)
+use_gpl_license(version = 3, include_future = TRUE)
+citation("smallpackage")
+usethis::use_readme_rmd()
+devtools::check()
+```
+
+Citation will not work very well until you edit the DESCRIPTION file.
+
+First complete the authors. Remove the current author and maintainer lines and replace it with the following line:
+
+Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+
+Complete the title and description fields with appropriate details. If you want to form a paragraph of text, make sure do indent the hanging lines by 4 spaces (one tab). And make sure that your Description field ends in a full-stop.
+Add a date
+
+Use today’s date in ISO format, ie 2019-04-10. This will populate a citation entry for us.
