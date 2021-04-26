@@ -36,8 +36,8 @@ After you have one or more functions with skeletons,use function devtools::docum
 
 ```{r package, eval=FALSE}
 devtools::document()
-#Add cowsay as a dependency.
-usethis::use_package("cowsay")
+#Add rgdal as a dependency.
+usethis::use_package("rgdal")
 library(usethis)
 use_gpl_license(version = 3, include_future = TRUE)
 citation("smallpackage")
