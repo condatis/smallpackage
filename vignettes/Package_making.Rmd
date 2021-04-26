@@ -55,3 +55,11 @@ Complete the title and description fields with appropriate details. If you want 
 Add a date
 
 Use today’s date in ISO format, ie 2019-04-10. This will populate a citation entry for us.
+
+
+
+```{r}
+usethis::use_vignette("second-vignette")
+```
+
+Or, go through the RStudio menu File -> New File -> R Markdown -> From Template. Then you select “Package Vignette” from the rmarkdown package, and you will get a vignette template. After changing the title, author, and other metadata of the template, you can start writing the content of your report.
